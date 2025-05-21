@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 public class Episode {
@@ -15,5 +17,9 @@ public class Episode {
     private Long id;
 
     private String title;
-    private int episodeNumber;
+    private String episodeDescription;
+    private LocalDateTime broadcastDate;
+    private String image;
+
+    private Long dramaId;
 }
