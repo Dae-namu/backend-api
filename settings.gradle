@@ -1,0 +1,3 @@
+rootProject.name = 'daenamu-backend'
+
+include 'drama', 'episode', 'stream'
