@@ -1,5 +1,20 @@
 server:
-  port: 8081
+  port: 8001
+
 spring:
   application:
     name: drama-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/daenamu_db?serverTimezone=Asia/Seoul
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  config:
+    import: application-secret.yml
