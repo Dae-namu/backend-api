@@ -1,4 +1,4 @@
-name: MSA 빌드 및 Dockerhub에 Push
+name: MSA 빌드 및 Dockerhub에 push
 
 on:
   push:
