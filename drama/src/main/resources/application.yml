@@ -18,3 +18,8 @@ spring:
         format_sql: true
   config:
     import: application-secret.yml
+  springdoc:
+    api-docs:
+      path: /api-docs
+    swagger-ui:
+      path: /swagger-ui.html
