@@ -8,7 +8,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class StreamMeta {
+public class Stream {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

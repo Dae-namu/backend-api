@@ -16,6 +16,7 @@ public class EpisodeResponseDto {
     private String episodeDescription;
     private LocalDateTime broadcastDate;
     private String image;
+    private String streamUrl;
 
     public EpisodeResponseDto() {}
 
