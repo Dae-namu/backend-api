@@ -14,6 +14,7 @@ public class DramaResponseDto {
     private String title;
     private String thumbnailUrl;
     private String description;
+    private String backgroundImageUrl;
     private List<EpisodeResponseDto> episodes;
 
     public DramaResponseDto(Drama drama, List<EpisodeResponseDto> episodes){
@@ -21,6 +22,7 @@ public class DramaResponseDto {
         this.title = drama.getTitle();
         this.thumbnailUrl = drama.getThumbnailUrl();
         this.description = drama.getDescription();
+        this.backgroundImageUrl = drama.getBackgroundImageUrl();
         this.episodes = episodes;
     }
 }
