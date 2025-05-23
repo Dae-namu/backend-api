@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "stream-service", url = "http://localhost:8003")
 public interface StreamClient {
 
-    @GetMapping("/streams/episode/{episodeId}")
-    StreamResponseDto getStreamByEpisodeId(@PathVariable("episodeId") Long episodeId);
+    @GetMapping("/streams/drama/{dramaId}/episode/{episodeId}")
+    StreamResponseDto getStreamByEpisodeId(
+            @PathVariable("dramaId") Long dramaId,
+            @PathVariable("episodeId") Long episodeId);
 }
