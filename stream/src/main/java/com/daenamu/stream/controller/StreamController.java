@@ -15,8 +15,10 @@ public class StreamController {
 
     private final StreamService streamService;
 
-    @GetMapping("/episode/{episodeId}")
-    public StreamResponseDto getStreamByEpisodeId(@PathVariable("episodeId") Long episodeId){
-        return streamService.getStreamByEpisodeId(episodeId);
+    @GetMapping("/drama/{dramaId}/episode/{episodeId}")
+    public StreamResponseDto getStreamByEpisodeId(
+            @PathVariable("dramaId") Long dramaId,
+            @PathVariable("episodeId") Long episodeId){
+        return streamService.getStreamByEpisodeId(dramaId, episodeId);
     }
 }
