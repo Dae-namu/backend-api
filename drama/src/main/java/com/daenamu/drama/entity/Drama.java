@@ -17,4 +17,6 @@ public class Drama {
     private String title;
     private String thumbnailUrl;
     private String description;
+    @Column(name = "background_image_url")
+    private String backgroundImageUrl;
 }
