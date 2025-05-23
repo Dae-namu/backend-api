@@ -18,22 +18,16 @@ public class EpisodeService {
     private final EpisodeRepository episodeRepository;
     private final StreamClient streamClient;
 
-    public List<EpisodeResponseDto> getEpisodesByDramaId(Long dramaId){
-//        return episodeRepository.findByDramaId(dramaId).stream().map(
-//                episode -> {
-//                    String streamUrl = streamClient.getStreamByEpisodeId(episode.getId()).getStreamUrl();
-//                    return new EpisodeResponseDto(episode, streamUrl);
-//                }
-//        ).collect(Collectors.toList());
+    public List<EpisodeResponseDto> getEpisodesByDramaId(Long dramaId) {
         return episodeRepository.findByDramaId(dramaId).stream().map(
                 episode -> {
                     String streamUrl = null;
                     try {
-                        StreamResponseDto stream = streamClient.getStreamByEpisodeId(episode.getId());
+                        StreamResponseDto stream = streamClient.getStreamByEpisodeId(dramaId, episode.getId());
                         streamUrl = stream.getStreamUrl();
-                        System.out.println("✅ streamUrl for episodeId " + episode.getId() + ": " + streamUrl);
+                        System.out.println("StreamUrl for episodeId " + episode.getId() + ": " + streamUrl);
                     } catch (Exception e) {
-                        System.out.println("🚨 Feign 오류 발생: " + e.getMessage());
+                        System.out.println("Feign 오류 발생: " + e.getMessage());
                     }
                     return new EpisodeResponseDto(episode, streamUrl);
                 }
@@ -44,7 +38,8 @@ public class EpisodeService {
         Episode episode = episodeRepository.findById(episodeId)
                 .filter(e -> e.getDramaId().equals(dramaId))
                 .orElseThrow(() -> new RuntimeException("해당 회차를 찾을 수 없습니다."));
-        String streamUrl = streamClient.getStreamByEpisodeId(episodeId).getStreamUrl();
+
+        String streamUrl = streamClient.getStreamByEpisodeId(dramaId, episodeId).getStreamUrl();
         return new EpisodeResponseDto(episode, streamUrl);
     }
 }
