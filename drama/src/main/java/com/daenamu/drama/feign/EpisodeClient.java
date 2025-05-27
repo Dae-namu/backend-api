@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "episode")
+@FeignClient(name = "episode", configuration = FeignTracingConfig.class)
 public interface EpisodeClient {
 
     @GetMapping("/episodes/drama/{dramaId}")

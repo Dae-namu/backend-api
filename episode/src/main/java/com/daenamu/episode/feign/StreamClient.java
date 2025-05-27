@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "stream")
+@FeignClient(name = "stream", configuration = FeignTracingConfig.class)
 public interface StreamClient {
 
     @GetMapping("/streams/drama/{dramaId}/episode/{episodeId}")
