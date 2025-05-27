@@ -4,7 +4,7 @@ spring:
   application:
     name: episode
   datasource:
-    url: jdbc:mysql://${DB_HOST}/daenamu2_db?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8mb4
+    url: jdbc:mysql://${DB_HOST}:3306/daenamu2_db?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -29,3 +29,8 @@ spring:
       path: /api-docs
     swagger-ui:
       path: /swagger-ui.html
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
